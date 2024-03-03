@@ -1,0 +1,31 @@
+server:
+  port : 8086
+
+spring:
+  rabbitmq:
+    host: localhost
+    password: guest
+    port: 5672
+    username: guest
+  sql:
+    init:
+      mode: always
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: admin
+    url: jdbc:h2:mem:inventory-db;DATABASE_TO_UPPER=false
+    password:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    defer-datasource-initialization: true
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
